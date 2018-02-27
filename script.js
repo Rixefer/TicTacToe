@@ -11,7 +11,7 @@ var HUMVAL = -1;
 var COMVAL = 1;
 
 var winMatrix = [
-				[0, 1, 2]
+				[0, 1, 2],
 				[3, 4, 5],
 				[6, 7, 8],
 				[0, 3, 6],
@@ -59,19 +59,18 @@ function set (index, player) {
 		buttons[0].style.opacity = "0";
 
 		buttons[1].style.width = "32vh";
-	
+
 		if(player == HUMAN) {
-			tiles[index].style.backgorund = "#22f";
+			tiles[index].style.background = "#22f";
 			state[index] = HUMVAL;
 		}
 		else {
-			tiles[index].style.backgorund = "#f22";
-			state[x] = COMPUTER;
+			tiles[index].style.background = "#f22";
+			state[index] = COMPUTER;
 		}
 
-		if(checkWin(state, player)) 
+		if(checkWin(state, player))
 			game = false;
-		
 	}
 }
 
@@ -115,7 +114,7 @@ function aiturn(board, depth, player) {
 	if(checkFull(board))
 		return 0;
 
-	var value = player == HUMVAL : COMVAL;
+	var value = player == HUMAN ? HUMVAL : COMVAL;
 
 	var max = -Infinity;
 	var index = 0;
